@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import axios from "axios";
 
-const Wrapper = styled.section`
+const Wrapper = css`
   display: flex;
   flex-direction: column;
+`;
+const Wrapper1 = styled.section`
+  ${Wrapper}
   width: 50%;
   margin: 0 auto;
+`;
+
+const Wrapper2 = styled.div`
+  ${Wrapper}
 `;
 
 const Form = styled.form`
@@ -19,12 +26,7 @@ const Form = styled.form`
   display: grid;
 `;
 
-const Wrapper2 = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Input = styled.input`
+const sharedStyles = css`
   height: 54px;
   border: 1px solid #e5e6f2;
   background-color: #fcfcff;
@@ -35,15 +37,13 @@ const Input = styled.input`
   transition: border-color 0.2s;
 `;
 
+const Input = styled.input`
+  ${sharedStyles}
+`;
+
 const Textarea = styled.textarea`
+  ${sharedStyles}
   height: 232px;
-  border: 1px solid #e5e6f2;
-  background-color: #fcfcff;
-  border-radius: 8px;
-  margin-bottom: 0;
-  padding: 12px;
-  font-size: 18px;
-  transition: border-color 0.2s;
 `;
 
 const Label = styled.label`
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper1>
       <h1>Contact page</h1>
       <Form>
         <Wrapper2>
@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
       <ButtonMedium type="submit" onClick={postUserInfo}>
         Send Message
       </ButtonMedium>
-    </Wrapper>
+    </Wrapper1>
   );
 };
 
