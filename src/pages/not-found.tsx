@@ -42,4 +42,5 @@ const NotFound: React.FC = () => {
     </Wrapper>
   );
 };
+
 export default NotFound;
