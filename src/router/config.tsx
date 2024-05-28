@@ -2,7 +2,8 @@ import { lazy } from "react";
 
 const HomePage = lazy(() => import("../pages/home"));
 const CategoryPage = lazy(() => import("../pages/category"));
-const Contact =lazy(() => import("../pages/contact"));
+const PageOne = lazy(() => import("../pages/product/page1"));
+const Contact = lazy(() => import("../pages/contact"));
 
 type routesProps = {
   path: string[] | string;
@@ -32,6 +33,13 @@ const routes: routesProps = [
     path: "/contact",
     exact: true,
     component: Contact,
+    layout: "default",
+    authType: "no-auth",
+  },
+  {
+    path: "/page1",
+    exact: true,
+    component: PageOne,
     layout: "default",
     authType: "no-auth",
   },
